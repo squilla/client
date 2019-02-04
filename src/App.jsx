@@ -10,6 +10,11 @@ export default class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+    document.title = "Squilla"
+  }
+
+
   render() {
     return (
       <div className="App">
