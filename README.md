@@ -1,3 +1,9 @@
+# Squilla Frontend
+## Getting Started
+* Configure ESLint to Airbnb - [Directions](https://github.com/Make-School-Courses/FEW-2.3-Single-Page-Web-Applications/blob/master/lesson-04.md)
+* 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
