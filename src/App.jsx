@@ -1,9 +1,10 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
+import Navbar from './Components/Navbar/Navbar.jsx'
 
 export default class App extends React.Component {
-  constuctor() {
+  constructor(props) {
+    super(props)
     this.state = {
       loggedIn: false,
     }
@@ -12,7 +13,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        
+        <Navbar currentState={this.state} />
       </div>
     )
   }
