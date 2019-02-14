@@ -1,8 +1,6 @@
-/*eslint semi: "never"*/
-
 module.exports = {
     "extends": "airbnb",
     "rules": {
-        "semi": "never"
+        "semi": 0,
     }
 };
