@@ -12,7 +12,21 @@ export default class LogIn extends React.Component {
     }
   }
 
+  usernameStateHandler(value) {
+    this.setState({
+      enteredUsername: value,
+    })
+  }
+
+  passwordStateHandler(value) {
+    this.setState({
+      enteredPassword: value,
+    })
+  }
+
   render() {
+    let { enteredUsername, enteredPassword } = this.state
+
     return (
       <div id="login-form">
         <form>
@@ -23,6 +37,8 @@ export default class LogIn extends React.Component {
             type="text"
             placeholder="jen@email.com"
             name="username"
+            stateText={enteredUsername}
+            onChange={this.usernameStateHandler()}
           />
 
           {/* Password Input */}
@@ -32,6 +48,8 @@ export default class LogIn extends React.Component {
             type="password"
             placeholder="password"
             name="password"
+            stateText={enteredPassword}
+            onChange={this.passwordStateHandler()}
           />
 
           <button type="submit">Log In</button>
