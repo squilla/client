@@ -2,23 +2,9 @@ import React from 'react'
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class InputText extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: props.stateText,
-    }
-  }
-
-  onChange(event) {
-    let { stateValue } = this.state
-
-    this.setState({ value: event.target.value })
-    this.onChange(stateValue)
-  }
-
   render() {
     const {
-      divId, name, labelText, type, placeholder, stateText,
+      divId, name, labelText, type, placeholder, stateText, onChange
     } = this.props
 
     return (
@@ -30,7 +16,7 @@ export default class InputText extends React.Component {
             placeholder={placeholder}
             name={name}
             value={stateText}
-            onChange={event => this.onChange(event)}
+            onChange={onChange}
           />
         </label>
       </div>

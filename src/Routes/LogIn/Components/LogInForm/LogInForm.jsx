@@ -10,17 +10,20 @@ export default class LogIn extends React.Component {
       enteredUsername: null,
       enteredPassword: null,
     }
+
+    this.usernameStateHandler = this.usernameStateHandler.bind(this)
+    this.passwordStateHandler = this.passwordStateHandler.bind(this)
   }
 
-  usernameStateHandler(value) {
+  usernameStateHandler(event) {
     this.setState({
-      enteredUsername: value,
+      enteredUsername: event.target.value,
     })
   }
 
-  passwordStateHandler(value) {
+  passwordStateHandler(event) {
     this.setState({
-      enteredPassword: value,
+      enteredPassword: event.target.value,
     })
   }
 
@@ -38,7 +41,7 @@ export default class LogIn extends React.Component {
             placeholder="jen@email.com"
             name="username"
             stateText={enteredUsername}
-            onChange={this.usernameStateHandler()}
+            onChange={this.usernameStateHandler}
           />
 
           {/* Password Input */}
@@ -49,7 +52,7 @@ export default class LogIn extends React.Component {
             placeholder="password"
             name="password"
             stateText={enteredPassword}
-            onChange={this.passwordStateHandler()}
+            onChange={this.passwordStateHandler}
           />
 
           <button type="submit">Log In</button>
