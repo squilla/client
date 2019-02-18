@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Link } from 'react-router-dom'
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class IconBtn extends React.Component {
@@ -6,11 +7,10 @@ export default class IconBtn extends React.Component {
     const { link, img, alt } = this.props
     return (
       <div className="icon-btn">
-        <a href="{link}">
-          <img src="{img}" alt="{alt}" />
-        </a>
+        <Link to={link}>
+          <img src={img} alt={alt} />
+        </Link>
       </div>
     )
   }
 }
-

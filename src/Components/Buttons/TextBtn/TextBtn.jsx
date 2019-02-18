@@ -1,16 +1,13 @@
 import React from 'react'
 
+// eslint-disable-next-line react/prefer-stateless-function
 export default class TextBtn extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
-    let { link, text } = this.props
+    const { link, text } = this.props
 
     return (
       <div className="text-btn">
-        <a href="{link}">
+        <a href={link}>
           <p>{text}</p>
         </a>
       </div>

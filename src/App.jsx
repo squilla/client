@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
 import Routes from './Routes/Routes.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
@@ -9,11 +9,12 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      user: null
+      user: 'tor',
     }
   }
 
   componentDidMount() {
+    // eslint-disable-next-line no-undef
     document.title = 'Squilla'
   }
 
@@ -30,8 +31,6 @@ export default class App extends React.Component {
             <Routes user={user} />
           </div>
         </Router>
-
-
       </div>
     )
   }
