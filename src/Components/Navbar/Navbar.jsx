@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Link } from 'react-router-dom'
 
 import Logo from './Components/Logo/Logo.jsx'
 import TextBtn from '../Buttons/TextBtn/TextBtn.jsx'
@@ -16,9 +16,7 @@ export default class Navbar extends React.Component {
       return (
         <div>
           <div>
-            <Link to="/new">
-              <TextBtn text="New Post" />
-            </Link>
+            <TextBtn text="New Post" link="/new" />
           </div>
 
           <div>
@@ -31,11 +29,7 @@ export default class Navbar extends React.Component {
     }
 
     if (!user) {
-      return (
-        <Link to="/signin">
-          <TextBtn text="Sign Up" />
-        </Link>
-      )
+      return <TextBtn text="Sign In" link="/signin" />
     }
   }
 

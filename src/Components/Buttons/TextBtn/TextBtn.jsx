@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link }  from 'react-router-dom'
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class TextBtn extends React.Component {
@@ -6,11 +7,9 @@ export default class TextBtn extends React.Component {
     const { link, text } = this.props
 
     return (
-      <div className="text-btn">
-        <a href={link}>
-          <p>{text}</p>
-        </a>
-      </div>
+      <Link to={link}>
+        <p>{text}</p>
+      </Link>
     )
   }
 }
