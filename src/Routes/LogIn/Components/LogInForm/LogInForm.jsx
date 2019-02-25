@@ -28,11 +28,11 @@ export default class LogIn extends React.Component {
   }
 
   render() {
-    let { enteredUsername, enteredPassword } = this.state
+    const { enteredUsername, enteredPassword } = this.state
 
     return (
       <div id="login-form">
-        <form>
+        <form action="/api/auth/sign-in" method="post">
           {/* Username Input */}
           <InputText
             divId="username-input"

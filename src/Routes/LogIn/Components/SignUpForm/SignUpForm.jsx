@@ -56,11 +56,17 @@ export default class SignUp extends React.Component {
   }
 
   render() {
-    let { enteredUsername, enteredPassword, enteredFirstName, enteredLastName, isArtist } = this.state
+    const {
+      enteredUsername,
+      enteredPassword,
+      enteredFirstName,
+      enteredLastName,
+      isArtist,
+    } = this.state
 
     return (
       <div id="signup-form">
-        <form>
+        <form action="/api/auth/sign-up" method="post">
           {/* Username Input */}
           <InputText
             divId="username-input"

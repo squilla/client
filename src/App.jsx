@@ -5,6 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './Routes/Routes.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
 
+const fetch = require('node-fetch')
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -17,6 +19,15 @@ export default class App extends React.Component {
   componentDidMount() {
     // eslint-disable-next-line no-undef
     document.title = 'Squilla'
+
+    fetch('/api').then((res) => {
+      return res.json()
+    }).then((json) => {
+      console.log(json)
+    }).catch((err) => {
+      // Handle errors
+      console.log(err.message)
+    })
   }
 
   render() {

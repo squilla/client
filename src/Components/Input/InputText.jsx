@@ -15,7 +15,7 @@ export default class InputText extends React.Component {
             type={type}
             placeholder={placeholder}
             name={name}
-            value={stateText}
+            value={!stateText ? '' : stateText}
             onChange={onChange}
           />
         </label>
