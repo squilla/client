@@ -7,8 +7,8 @@ export default class LogIn extends React.Component {
     super(props)
 
     this.state = {
-      enteredUsername: null,
-      enteredPassword: null,
+      enteredUsername: '',
+      enteredPassword: '',
     }
 
     this.usernameStateHandler = this.usernameStateHandler.bind(this)
@@ -20,6 +20,11 @@ export default class LogIn extends React.Component {
       enteredUsername: event.target.value,
     })
   }
+
+  handleResponse() {
+
+  }
+  
 
   passwordStateHandler(event) {
     this.setState({
@@ -55,7 +60,9 @@ export default class LogIn extends React.Component {
             onChange={this.passwordStateHandler}
           />
 
-          <button type="submit">Log In</button>
+          <button type="submit" onClick={
+            (enteredUsername, enteredPassword) => {this.props.handleSubmit(enteredUsername, enteredPassword)}
+          }>Log In</button>
         </form>
       </div>
     )
