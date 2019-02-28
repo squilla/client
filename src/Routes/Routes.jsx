@@ -1,6 +1,8 @@
 import React from 'react'
-// eslint-disable-next-line no-unused-vars
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import {
+  // eslint-disable-next-line no-unused-vars
+  BrowserRouter as Router, Route, Link, Redirect,
+} from 'react-router-dom'
 
 import PostIndex from './PostIndex/PostIndex.jsx'
 import NewPost from './NewPost/NewPost.jsx'
@@ -11,7 +13,7 @@ import Landing from './Landing/Landing.jsx'
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Routes extends React.Component {
   render() {
-    const { user, handleLogin } = this.props
+    const { user, handleLogin, location } = this.props
 
     return (
       <div>
@@ -26,9 +28,42 @@ export default class Routes extends React.Component {
             )
           )}
         />
-        <Route path="/signin" render={() => <LogIn user={user} handleLogin={handleLogin} />} />
-        <Route path="/new" component={<NewPost user={user} />} />
-        <Route path="/profile" component={<Profile user={user} />} />
+
+        <Route
+          path="/signin"
+          render={() => <LogIn user={user} handleLogin={handleLogin} />}
+        />
+        
+        <Route
+          path="/newpost"
+          render={() => (
+            user ? (
+              <NewPost />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: '/signin',
+                  state: { from: location },
+                }}
+              />
+            )
+          )}
+        />
+        <Route
+          path="/profile"
+          render={() => (
+            user ? (
+              <Profile user={user} />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: '/signin',
+                  state: { from: location },
+                }}
+              />
+            )
+          )}
+        />
       </div>
     )
   }

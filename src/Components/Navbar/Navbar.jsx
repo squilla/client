@@ -1,4 +1,5 @@
 import React from 'react'
+// eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Logo from './Components/Logo/Logo.jsx'
@@ -16,7 +17,7 @@ export default class Navbar extends React.Component {
       return (
         <div>
           <div>
-            <TextBtn text="New Post" link="/new" />
+            <TextBtn text="New Post" link="/newpost" />
           </div>
 
           <div>

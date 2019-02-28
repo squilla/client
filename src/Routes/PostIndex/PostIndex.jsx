@@ -17,6 +17,7 @@ export default class PostIndex extends React.Component {
 
   componentWillMount() {
     // get art resource as `post`
+    axios.get('/api/art/')
   }
 
   handleSubmit(commentValue, ratingValue) {
