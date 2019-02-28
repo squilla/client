@@ -1,7 +1,8 @@
 import React from 'react'
+import axios from 'axios'
+
 import InputText from '../../../../Components/Input/InputText.jsx'
 
-// eslint-disable-next-line react/prefer-stateless-function
 export default class SignUp extends React.Component {
   constructor(props) {
     super(props)
@@ -18,6 +19,8 @@ export default class SignUp extends React.Component {
     this.passwordStateHandler = this.passwordStateHandler.bind(this)
     this.firstNameStateHandler = this.firstNameStateHandler.bind(this)
     this.lastNameStateHandler = this.lastNameStateHandler.bind(this)
+    this.radioChangeHandler = this.radioChangeHandler.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   usernameStateHandler(event) {
@@ -51,8 +54,37 @@ export default class SignUp extends React.Component {
   }
 
   radioChangeHandler() {
-    let newState = this.state.isArtist === false ? true : false
-    this.radioSetState(newState)
+    const { isArtist } = this.state
+
+    if (isArtist === false) {
+      const newState = true
+      this.radioSetState(newState)
+    }
+
+    if (isArtist === true) {
+      const newState = false
+      this.radioSetState(newState)
+    }
+  }
+
+  handleSubmit(e) {
+    const {
+      enteredUsername: email,
+      enteredPassword: password,
+      enteredFirstName: firstName,
+      enteredLastName: lastName,
+      isArtist,
+    } = this.state
+
+    e.preventDefault()
+    axios.post('/api/auth/sign-up', {
+      firstName, lastName, email, password, isArtist,
+    }).then((response) => {
+      // TODO: Move the page forward if 200
+      console.log(response)
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
   render() {
@@ -116,11 +148,22 @@ export default class SignUp extends React.Component {
 
             <label htmlFor="artist">
               Yes
-              <input type="radio" id="artist" name="account-type" value={isArtist} onChange={this.radioChangeHandler} />
+              <input
+                type="radio"
+                id="artist"
+                name="account-type"
+                value={isArtist}
+                onChange={this.radioChangeHandler}
+              />
             </label>
           </div>
 
-          <button type="submit">Sign Up</button>
+          <button
+            type="submit"
+            onClick={this.handleSubmit}
+          >
+            Sign Up
+          </button>
         </form>
       </div>
     )

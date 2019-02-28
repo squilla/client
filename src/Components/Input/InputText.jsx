@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './inputtext.css'
+
 // eslint-disable-next-line react/prefer-stateless-function
 export default class InputText extends React.Component {
   render() {

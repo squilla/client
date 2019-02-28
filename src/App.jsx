@@ -5,28 +5,24 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './Routes/Routes.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
 
-const fetch = require('node-fetch')
-
 export default class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      user: '',
+      user: undefined,
     }
+
+    this.handleLogin = this.handleLogin.bind(this)
   }
 
   componentDidMount() {
-    // eslint-disable-next-line no-undef
     document.title = 'Squilla'
+  }
 
-    fetch('/api').then((res) => {
-      return res.json()
-    }).then((json) => {
-      console.log(json)
-    }).catch((err) => {
-      // Handle errors
-      console.log(err.message)
+  handleLogin(userData) {
+    this.setState({
+      user: userData.data,
     })
   }
 
@@ -38,9 +34,7 @@ export default class App extends React.Component {
         <Router>
           <div>
             <Navbar user={user} />
-
-
-            <Routes user={user} />
+            <Routes user={user} handleLogin={this.handleLogin} />
           </div>
         </Router>
       </div>

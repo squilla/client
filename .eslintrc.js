@@ -6,4 +6,7 @@ module.exports = {
         "react/prop-types": 0,
         "consistent-return": 0,
     },
+    "env": {
+        "browser": true
+    }
 };

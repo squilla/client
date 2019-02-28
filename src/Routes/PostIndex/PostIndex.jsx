@@ -1,7 +1,8 @@
 import React from 'react'
 
-import PostContainer from './Components/PostContainer.jsx'
-import FeedbackContainer from './Compontents/FeedbackContainer.jsx'
+import PostContainer from './Components/PostContainer/PostContainer.jsx'
+import FeedbackContainer from './Components/FeedbackContainer/FeedbackContainer.jsx'
+import axios from 'axios'
 
 // eslint-disable-next-line react/require-render-return
 export default class PostIndex extends React.Component {
@@ -9,15 +10,33 @@ export default class PostIndex extends React.Component {
     super(props)
 
     this.state = {
-      comment: ""
+      comment: '',
+      rating: '',
     }
+  }
+
+  componentWillMount() {
+    // get art resource as `post`
+  }
+
+  handleSubmit(commentValue, ratingValue) {
+    this.setState({
+      comment: commentValue,
+    })
+
+    this.setState({
+      rating: ratingValue,
+    })
   }
 
 
   render() {
-    <div id="post-index-container">
-      <PostContainer post={post} />
-      <FeedbackContainer />
-    </div>
+    return (
+      <div id="post-index-container">
+        <PostContainer post="post" />
+        {/* ^^^^^^^^^^ post={post}, where `post` is set to art resource api response */}
+        <FeedbackContainer handleSubmit={this.handleSubmit} />
+      </div>
+    )
   }
 }
