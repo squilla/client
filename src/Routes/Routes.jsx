@@ -33,12 +33,12 @@ export default class Routes extends React.Component {
           path="/signin"
           render={() => <LogIn user={user} handleLogin={handleLogin} />}
         />
-        
+
         <Route
           path="/newpost"
           render={() => (
             user ? (
-              <NewPost />
+              <NewPost user={user} />
             ) : (
               <Redirect
                 to={{
