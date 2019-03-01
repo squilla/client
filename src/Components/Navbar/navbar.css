@@ -1,4 +1,4 @@
-#navbar-links-container, #navbar-feedback-section-container {
+/* #navbar-links-container, #navbar-feedback-section-container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -7,4 +7,5 @@
 
 #navbar-feedback-section-container {
   width: 20vw;
-}
+} */
+
