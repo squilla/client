@@ -3,7 +3,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Logo from './Components/Logo/Logo.jsx'
-import TextBtn from '../Buttons/TextBtn/TextBtn.jsx'
+import Navlink from './Components/Navlink/Navlink.jsx'
 
 import './navbar.css'
 
@@ -13,16 +13,31 @@ export default class Navbar extends React.Component {
     const { user } = this.props
 
     if (user) {
+      // All of these ugly `div`s below exist for flex
       return (
         <div id="navbar-links-container">
-          <Link to="/">
-            <Logo />
-          </Link>
-          <p>FEEDBACK</p>
-          <TextBtn text="GET" link="/get" />
-          <TextBtn text="GIVE" link="/give" />
-          <TextBtn text="VIEW" link="/" />
-          <TextBtn text="Logout" link="/logout" />
+          <div>
+            <Link to="/">
+              <Logo />
+            </Link>
+          </div>
+          <div id="navbar-feedback-section-container">
+            <div>
+              <p>FEEDBACK:</p>
+            </div>
+            <div>
+              <Navlink text="GET" link="/get" />
+            </div>
+            <div>
+              <Navlink text="GIVE" link="/give" />
+            </div>
+            <div>
+              <Navlink text="VIEW" link="/" />
+            </div>
+          </div>
+          <div>
+            <Navlink text="Logout" link="/logout" />
+          </div>
         </div>
       )
     }
@@ -30,11 +45,14 @@ export default class Navbar extends React.Component {
     if (!user) {
       return (
         <div id="navbar-links-container">
-          <Link to="/">
-            <Logo />
-          </Link>
-
-          <TextBtn text="Get Started" link="/signin" />
+          <div>
+            <Link to="/">
+              <Logo />
+            </Link>
+          </div>
+          <div>
+            <Navlink text="Get Started" link="/signin" />
+          </div>
         </div>
       )
     }
