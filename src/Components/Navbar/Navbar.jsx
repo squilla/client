@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Logo from './Components/Logo/Logo.jsx'
 import TextBtn from '../Buttons/TextBtn/TextBtn.jsx'
-import IconBtn from '../Buttons/IconBtn/IconBtn.jsx'
 
 import './navbar.css'
 
@@ -15,34 +14,35 @@ export default class Navbar extends React.Component {
 
     if (user) {
       return (
-        <div>
-          <div>
-            <TextBtn text="New Post" link="/newpost" />
-          </div>
-
-          <div>
-            <Link to="/profile">
-              <IconBtn img="./images/profile.png" alt="Profile" />
-            </Link>
-          </div>
+        <div id="navbar-links-container">
+          <Link to="/">
+            <Logo />
+          </Link>
+          <p>FEEDBACK</p>
+          <TextBtn text="GET" link="/get" />
+          <TextBtn text="GIVE" link="/give" />
+          <TextBtn text="VIEW" link="/" />
+          <TextBtn text="Logout" link="/logout" />
         </div>
       )
     }
 
     if (!user) {
-      return <TextBtn text="Sign In" link="/signin" />
+      return (
+        <div id="navbar-links-container">
+          <Link to="/">
+            <Logo />
+          </Link>
+
+          <TextBtn text="Get Started" link="/signin" />
+        </div>
+      )
     }
   }
 
   render() {
     return (
       <div id="navbar">
-        <div>
-          <Link to="/">
-            <Logo />
-          </Link>
-        </div>
-
         {this.userState()}
       </div>
     )

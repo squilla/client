@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios';
 
 export default class NewPost extends React.Component {
   constructor(props) {
@@ -14,8 +13,10 @@ export default class NewPost extends React.Component {
   }
 
   selectedFileHandler(event) {
+    const img = event.target.files[0]
+
     this.setState({
-      file: event.target.files[0],
+      file: img,
     })
   }
 
@@ -27,14 +28,15 @@ export default class NewPost extends React.Component {
 
     const { _id: id } = user
 
-    axios.post('', { title, file, id })
-      .then(response => console.log(response))
+
+    // axios.post('', { title, file, id })
+    //   .then(response => console.log(response))
   }
 
   render() {
     return (
       <div>
-        <input type="file" onChange={this.selectedFileHandler} />
+        <input type="file" onChange={this.selectedFileHandler} accept=".jpg, .png" />
       </div>
     )
   }

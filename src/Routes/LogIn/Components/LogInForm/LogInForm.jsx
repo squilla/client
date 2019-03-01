@@ -32,18 +32,6 @@ export default class LogIn extends React.Component {
     }
   }
 
-  usernameStateHandler(event) {
-    this.setState({
-      enteredUsername: event.target.value,
-    })
-  }
-
-  passwordStateHandler(event) {
-    this.setState({
-      enteredPassword: event.target.value,
-    })
-  }
-
   handleSubmit(e) {
     const { enteredUsername: email, enteredPassword: password } = this.state
 
@@ -79,6 +67,18 @@ export default class LogIn extends React.Component {
         <p className="error-text">Incorrect username or password.</p>
       )
     }
+  }
+
+  usernameStateHandler(event) {
+    this.setState({
+      enteredUsername: event.target.value,
+    })
+  }
+
+  passwordStateHandler(event) {
+    this.setState({
+      enteredPassword: event.target.value,
+    })
   }
 
   render() {

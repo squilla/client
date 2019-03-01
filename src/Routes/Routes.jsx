@@ -19,7 +19,7 @@ export default class Routes extends React.Component {
       <div>
         <Route
           exact
-          path="/"
+          path="/give"
           render={() => (
             user ? (
               <PostIndex />
@@ -31,11 +31,24 @@ export default class Routes extends React.Component {
 
         <Route
           path="/signin"
-          render={() => <LogIn user={user} handleLogin={handleLogin} />}
+          render={() => (
+            user ? (
+              <Redirect
+                to={{
+                  pathname: '/profile',
+                  state: { from: location },
+                }}
+              />
+            ) : (
+              <LogIn
+                user={user}
+                handleLogin={handleLogin}
+              />
+            ))}
         />
 
         <Route
-          path="/newpost"
+          path="/get"
           render={() => (
             user ? (
               <NewPost user={user} />
@@ -50,7 +63,8 @@ export default class Routes extends React.Component {
           )}
         />
         <Route
-          path="/profile"
+          path="/"
+          exact
           render={() => (
             user ? (
               <Profile user={user} />
