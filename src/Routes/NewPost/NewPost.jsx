@@ -23,10 +23,12 @@ export default class NewPost extends React.Component {
   handleSubmit() {
     // something will go here
     // this is just here to resolve the errors
+
     const { user } = this.props
     const { title, file } = this.state
 
     const { _id: id } = user
+    console.log('hey this isn\'t set up', id, title, file)
 
 
     // axios.post('', { title, file, id })
