@@ -62,7 +62,9 @@ export default class Routes extends React.Component {
             )
           )}
         />
+
         <Route
+          push
           path="/"
           exact
           render={() => (
@@ -76,6 +78,18 @@ export default class Routes extends React.Component {
                 }}
               />
             )
+          )}
+        />
+
+        <Route
+          path="/logout"
+          render={() => (
+            <Redirect
+              to={{
+                pathname: '/',
+                state: { user: '' },
+              }}
+            />
           )}
         />
       </div>

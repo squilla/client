@@ -39,7 +39,7 @@ export default class LogIn extends React.Component {
     axios.post('/api/auth/sign-in', { email, password })
       .then((response) => {
         // If response is OK, set this.state.user to the returned userId
-        // call this.handleLogin()
+        // call this.getUser()
         if (response.status === 200) {
           this.setState({
             // eslint-disable-next-line no-underscore-dangle

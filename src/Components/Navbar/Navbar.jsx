@@ -10,7 +10,7 @@ import './navbar.css'
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Navbar extends React.Component {
   userState() {
-    const { user } = this.props
+    const { user, handleLogout } = this.props
 
     if (user) {
       // All of these ugly `div`s below exist for flex
@@ -36,7 +36,7 @@ export default class Navbar extends React.Component {
             </div>
           </div>
           <div>
-            <Navlink text="Logout" link="/logout" />
+            <Navlink text="Logout" link="/logout" handleLogout={handleLogout} />
           </div>
         </div>
       )

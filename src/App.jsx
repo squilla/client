@@ -1,7 +1,9 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import axios from 'axios'
+
 import './App.css'
 
-import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './Routes/Routes.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
 
@@ -14,6 +16,7 @@ export default class App extends React.Component {
     }
 
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   componentDidMount() {
@@ -26,6 +29,14 @@ export default class App extends React.Component {
     })
   }
 
+  handleLogout() {
+    axios.get('/api/auth/sign-out').then(res => console.log(res).catch(err => console.log(err)))
+
+    this.setState({
+      user: undefined,
+    })
+  }
+
   render() {
     const { user } = this.state
 
@@ -33,7 +44,7 @@ export default class App extends React.Component {
       <div className="App">
         <Router>
           <div>
-            <Navbar user={user} />
+            <Navbar user={user} handleLogout={this.handleLogout} />
             <Routes user={user} handleLogin={this.handleLogin} />
           </div>
         </Router>
