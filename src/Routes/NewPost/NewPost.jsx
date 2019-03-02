@@ -17,6 +17,8 @@ export default class NewPost extends React.Component {
     const reader = new FileReader()
 
     reader.readAsDataURL(file[0])
+    // can't do anything about this error
+    // eslint-disable-next-line no-shadow
     reader.onload = (e) => {
       const formData = { file: e.target.result }
 

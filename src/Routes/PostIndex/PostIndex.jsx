@@ -1,8 +1,8 @@
 import React from 'react'
+import axios from 'axios'
 
 import PostContainer from './Components/PostContainer/PostContainer.jsx'
 import FeedbackContainer from './Components/FeedbackContainer/FeedbackContainer.jsx'
-import axios from 'axios'
 
 // eslint-disable-next-line react/require-render-return
 export default class PostIndex extends React.Component {
@@ -21,6 +21,8 @@ export default class PostIndex extends React.Component {
   }
 
   handleSubmit(commentValue, ratingValue) {
+    const { comment, rating } = this.state
+
     this.setState({
       comment: commentValue,
     })
@@ -28,6 +30,8 @@ export default class PostIndex extends React.Component {
     this.setState({
       rating: ratingValue,
     })
+
+    console.log(comment, rating)
   }
 
 
