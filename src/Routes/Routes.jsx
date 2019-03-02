@@ -35,7 +35,7 @@ export default class Routes extends React.Component {
             user ? (
               <Redirect
                 to={{
-                  pathname: '/profile',
+                  pathname: '/',
                   state: { from: location },
                 }}
               />

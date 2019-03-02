@@ -1,0 +1,17 @@
+ul#ratings {
+  width: 60vw;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+li.rating {
+  list-style-type: none;
+  font-size: 2em;
+}
+
+#feedback-input textarea {
+  width: 60vw;
+  height: 10vh;
+}

@@ -5,19 +5,25 @@ export default class NewPost extends React.Component {
     super(props)
 
     this.state = {
-      file: null,
+      img: null,
       title: '',
     }
 
     this.selectedFileHandler = this.selectedFileHandler.bind(this)
   }
 
-  selectedFileHandler(event) {
-    const img = event.target.files[0]
+  selectedFileHandler(e) {
+    const file = e.target.files
+    const reader = new FileReader()
 
-    this.setState({
-      file: img,
-    })
+    reader.readAsDataURL(file[0])
+    reader.onload = (e) => {
+      const formData = { file: e.target.result }
+
+      this.setState({
+        img: formData,
+      })
+    }
   }
 
   handleSubmit() {
@@ -25,10 +31,10 @@ export default class NewPost extends React.Component {
     // this is just here to resolve the errors
 
     const { user } = this.props
-    const { title, file } = this.state
+    const { title, img } = this.state
 
     const { _id: id } = user
-    console.log('hey this isn\'t set up', id, title, file)
+    console.log('hey this isn\'t set up', id, title, img)
 
 
     // axios.post('', { title, file, id })
