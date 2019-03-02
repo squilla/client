@@ -4,11 +4,9 @@
 import React from 'react'
 
 function PostContainer({ post }) {
-  const { URL } = post
-
   return (
     <div id="post-container">
-      <img id="post-image" src={URL} />
+      <img id="post-image" src={post} />
     </div>
   )
 }
