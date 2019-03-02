@@ -41,7 +41,7 @@ export default class Routes extends React.Component {
               />
             ) : (
               <LogIn
-                user={user}
+                push
                 handleLogin={handleLogin}
               />
             ))}
@@ -56,7 +56,7 @@ export default class Routes extends React.Component {
               <Redirect
                 to={{
                   pathname: '/signin',
-                  state: { from: location },
+                  state: { user: '' },
                 }}
               />
             )

@@ -104,7 +104,7 @@ export default class SignUp extends React.Component {
             divId="username-input"
             labelText="Username"
             type="text"
-            placeholder="jen@email.com"
+            placeholder="your@email.com"
             name="username"
             stateText={enteredUsername}
             onChange={this.usernameStateHandler}
