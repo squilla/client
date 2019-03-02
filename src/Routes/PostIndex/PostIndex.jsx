@@ -10,36 +10,42 @@ export default class PostIndex extends React.Component {
     super(props)
 
     this.state = {
-      comment: '',
-      rating: '',
+      img: null,
     }
   }
 
   componentWillMount() {
     // get art resource as `post`
-    axios.get('/api/art/')
+    axios.get('/api/art/random').then((res) => {
+      const image = res.data.art.url.string
+      this.returnImage(image)
+    })
   }
 
+  returnImage(image) {
+    this.setState({
+      img: image,
+    })
+  }
+
+  // eslint-disable-next-line class-methods-use-this
   handleSubmit(commentValue, ratingValue) {
-    const { comment, rating } = this.state
-
-    this.setState({
-      comment: commentValue,
-    })
-
-    this.setState({
-      rating: ratingValue,
-    })
-
-    console.log(comment, rating)
+    axios.post('/api/feedback/', { commentValue, ratingValue })
+      .then((res) => {
+        console.log(res)
+        // something
+      }).catch((err) => {
+        console.warn(err)
+      })
   }
 
 
   render() {
+    const { img: image } = this.state
+
     return (
       <div id="post-index-container">
-        <PostContainer post="post" />
-        {/* ^^^^^^^^^^ post={post}, where `post` is set to art resource api response */}
+        <PostContainer post={image} />
         <FeedbackContainer handleSubmit={this.handleSubmit} />
       </div>
     )
