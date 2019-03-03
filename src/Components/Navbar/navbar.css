@@ -1,11 +1,49 @@
-/* #navbar-links-container, #navbar-feedback-section-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: center;
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Fredoka+One|Open+Sans|Montserrat');
+.vertical-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 10px;
+    padding: 12px;
+    width: 200px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
 }
 
-#navbar-feedback-section-container {
-  width: 20vw;
-} */
+.nav-options {
+    align-self: flex-start;
+    width: 15%;
+    text-align: left;
+    padding: 12px;
+}
 
+#navbar-logo {
+    width: 15%;
+}
+
+a:link {
+    text-decoration: none;
+    color: #6a646c;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #D3D3D3;
+}
+
+.icons {
+    max-width: 100%;
+    height: auto;
+}
+
+hr {
+    display: block;
+    width: 65%;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}

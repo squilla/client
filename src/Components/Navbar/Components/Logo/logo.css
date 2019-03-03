@@ -1,5 +1,10 @@
-.navbar img {
-    background: url(./squilla-logo.png);
-    width: 18px;
-    height: 18px;
+#navbar-logo img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#navbar-logo{
+    padding: 0.3em;
+    width: 15%;
 }

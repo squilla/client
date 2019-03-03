@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Logo from './Components/Logo/Logo.jsx'
 import Navlink from './Components/Navlink/Navlink.jsx'
+import Upload from './icons/upload.png'
+import Comment from './icons/comment.png'
+import View from './icons/view.png'
+import Logoff from './icons/logoff.png'
 
 import './navbar.css'
 
@@ -15,28 +19,38 @@ export default class Navbar extends React.Component {
     if (user) {
       // All of these ugly `div`s below exist for flex
       return (
-        <div className="navbar">
+        <nav>
           <div className="logo">
             <Link to="/">
               <Logo />
             </Link>
           </div>
-          <div className="menu">
-            <div>
-              <Navlink text="Get Feedback" link="/get" />
+          <div className="vertical-menu">
+            <hr />
+            <div className="nav-options">
+              <img className="icons" src={Upload} alt="upload" />
+              <Navlink text="Upload Art" link="/get" />
             </div>
-            <div>
+            <div className="nav-options">
+              <img className="icons" src={Comment} alt="comment" />
               <Navlink text="Give Feedback" link="/give" />
             </div>
-            <div>
-              <Navlink text="View Feedback" link="/" />
+            <div className="nav-options">
+              <img className="icons" src={View} alt="comment" />
+              <Navlink text="View Comments" link="/" />
             </div>
-            <div>
-              <Navlink text="Logout" link="/logout" handleLogout={handleLogout} />
+            <div className="nav-options">
+              <img className="icons" src={Logoff} alt="logoff" />
+              <Navlink
+                text="Logout"
+                link="/logout"
+                handleLogout={handleLogout}
+              />
             </div>
+            <hr />
           </div>
-        </div>
-      )
+        </nav>
+      );
     }
 
     if (!user) {

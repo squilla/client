@@ -1,4 +1,5 @@
 import React from 'react'
+import './NewPost.css'
 
 export default class NewPost extends React.Component {
   constructor(props) {
