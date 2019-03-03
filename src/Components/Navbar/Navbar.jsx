@@ -31,14 +31,17 @@ export default class Navbar extends React.Component {
               <img className="icons" src={Upload} alt="upload" />
               <Navlink text="Upload Art" link="/get" />
             </div>
+            <hr />
             <div className="nav-options">
               <img className="icons" src={Comment} alt="comment" />
               <Navlink text="Give Feedback" link="/give" />
             </div>
+            <hr />
             <div className="nav-options">
               <img className="icons" src={View} alt="comment" />
               <Navlink text="View Comments" link="/" />
             </div>
+            <hr />
             <div className="nav-options">
               <img className="icons" src={Logoff} alt="logoff" />
               <Navlink
@@ -55,17 +58,23 @@ export default class Navbar extends React.Component {
 
     if (!user) {
       return (
-        <div id="navbar-links-container">
+        <div id="new-user-nav">
           <div>
             <Link to="/">
               <Logo />
             </Link>
           </div>
           <div>
-            <Navlink text="Get Started" link="/signin" />
+            <Navlink text="Learn More" link="/signin" />
+          </div>
+          <div>
+            <Navlink text="Sign-Up" link="#signup" />
+          </div>
+          <div>
+            <Navlink text="Login" link="#login" />
           </div>
         </div>
-      )
+      );
     }
   }
 

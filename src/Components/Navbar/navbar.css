@@ -5,22 +5,22 @@
     justify-content: center;
     align-content: center;
     margin: 10px;
-    padding: 12px;
+    padding: 5px;
     width: 200px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .nav-options {
     align-self: flex-start;
     width: 15%;
     text-align: left;
-    padding: 12px;
+    padding: 5px;
 }
 
 #navbar-logo {
-    width: 15%;
+    width: 10%;
 }
 
 a:link {
@@ -40,7 +40,7 @@ a:visited {
 
 hr {
     display: block;
-    width: 65%;
+    width: 50%;
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
