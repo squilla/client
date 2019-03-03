@@ -1,9 +1,9 @@
 import React from 'react'
 
-import './inputtext.css'
+import './inputtextarea.css'
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class InputText extends React.Component {
+export default class InputTextArea extends React.Component {
   render() {
     const {
       divId, name, labelText, type, placeholder, stateText, onChange,
@@ -13,7 +13,7 @@ export default class InputText extends React.Component {
       <div id={divId}>
         <label htmlFor={name}>
           {labelText}
-          <input
+          <textarea
             type={type}
             placeholder={placeholder}
             name={name}

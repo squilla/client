@@ -35,13 +35,13 @@ export default class Routes extends React.Component {
             user ? (
               <Redirect
                 to={{
-                  pathname: '/profile',
+                  pathname: '/',
                   state: { from: location },
                 }}
               />
             ) : (
               <LogIn
-                user={user}
+                push
                 handleLogin={handleLogin}
               />
             ))}
@@ -56,7 +56,7 @@ export default class Routes extends React.Component {
               <Redirect
                 to={{
                   pathname: '/signin',
-                  state: { from: location },
+                  state: { user: '' },
                 }}
               />
             )

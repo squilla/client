@@ -1,0 +1,8 @@
+#user-art-container {
+  width: 39vw;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}

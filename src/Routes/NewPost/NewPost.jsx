@@ -5,33 +5,38 @@ export default class NewPost extends React.Component {
     super(props)
 
     this.state = {
-      file: null,
-      title: '',
+      img: null,
     }
 
     this.selectedFileHandler = this.selectedFileHandler.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  selectedFileHandler(event) {
-    const img = event.target.files[0]
+  selectedFileHandler(e) {
+    const file = e.target.files
+    const reader = new FileReader()
 
-    this.setState({
-      file: img,
-    })
+    reader.readAsDataURL(file[0])
+    // can't do anything about this scope error
+    // eslint-disable-next-line no-shadow
+    reader.onload = (e) => {
+      const formData = { file: e.target.result }
+
+      this.setState({
+        img: formData,
+      })
+    }
   }
 
   handleSubmit() {
-    // something will go here
-    // this is just here to resolve the errors
-
     const { user } = this.props
-    const { title, file } = this.state
+    const { img } = this.state
 
     const { _id: id } = user
-    console.log('hey this isn\'t set up', id, title, file)
+    console.log('hey this isn\'t set up', id, img)
 
-
-    // axios.post('', { title, file, id })
+    // uncomment for art posting
+    // axios.post('/api/art/', { img })
     //   .then(response => console.log(response))
   }
 
@@ -39,6 +44,7 @@ export default class NewPost extends React.Component {
     return (
       <div>
         <input type="file" onChange={this.selectedFileHandler} accept=".jpg, .png" />
+        <button type="submit" onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }
