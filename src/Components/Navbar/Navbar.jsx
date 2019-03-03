@@ -15,28 +15,25 @@ export default class Navbar extends React.Component {
     if (user) {
       // All of these ugly `div`s below exist for flex
       return (
-        <div id="navbar-links-container">
-          <div>
+        <div className="navbar">
+          <div className="logo">
             <Link to="/">
               <Logo />
             </Link>
           </div>
-          <div id="navbar-feedback-section-container">
+          <div className="menu">
             <div>
-              <p>FEEDBACK:</p>
+              <Navlink text="Get Feedback" link="/get" />
             </div>
             <div>
-              <Navlink text="GET" link="/get" />
+              <Navlink text="Give Feedback" link="/give" />
             </div>
             <div>
-              <Navlink text="GIVE" link="/give" />
+              <Navlink text="View Feedback" link="/" />
             </div>
             <div>
-              <Navlink text="VIEW" link="/" />
+              <Navlink text="Logout" link="/logout" handleLogout={handleLogout} />
             </div>
-          </div>
-          <div>
-            <Navlink text="Logout" link="/logout" handleLogout={handleLogout} />
           </div>
         </div>
       )

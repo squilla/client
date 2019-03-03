@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Link } from 'react-router-dom'
 import './logo.css'
-// import logo from '../public/images/squilla-logo.png';
 
 function Logo() {
   return (
