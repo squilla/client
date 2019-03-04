@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import './SignUp.css'
+import blueImage from './blue.jpg'
 
 import InputText from '../../../../Components/Input/InputText.jsx'
 
@@ -97,74 +99,79 @@ export default class SignUp extends React.Component {
     } = this.state
 
     return (
-      <div id="signup-form">
-        <form action="/api/auth/sign-up" method="post">
-          {/* Username Input */}
-          <InputText
-            divId="username-input"
-            labelText="Username"
-            type="text"
-            placeholder="your@email.com"
-            name="username"
-            stateText={enteredUsername}
-            onChange={this.usernameStateHandler}
-          />
+      <div className="signup-container">
+        <div className="signup-img flex-child">
+          <img src={blueImage} alt="artist" />
+        </div>
+        <div className="signup-form flex-child">
+          <form action="/api/auth/sign-up" method="post">
+            {/* Username Input */}
+            <InputText
+              divId="username-input"
+              labelText="Username"
+              type="text"
+              placeholder="your@email.com"
+              name="username"
+              stateText={enteredUsername}
+              onChange={this.usernameStateHandler}
+            />
 
-          {/* Password Input */}
-          <InputText
-            divId="password-input"
-            labelText="Password"
-            type="password"
-            placeholder="password"
-            name="password"
-            stateText={enteredPassword}
-            onChange={this.passwordStateHandler}
-          />
+            {/* Password Input */}
+            <InputText
+              divId="password-input"
+              labelText="Password"
+              type="password"
+              placeholder="password"
+              name="password"
+              stateText={enteredPassword}
+              onChange={this.passwordStateHandler}
+            />
 
-          {/* First Name Input */}
-          <InputText
-            divId="first-name-input"
-            labelText="First Name"
-            type="text"
-            placeholder="Dan"
-            name="fname"
-            stateText={enteredFirstName}
-            onChange={this.firstNameStateHandler}
-          />
+            {/* First Name Input */}
+            <InputText
+              divId="first-name-input"
+              labelText="First Name"
+              type="text"
+              placeholder="Dan"
+              name="fname"
+              stateText={enteredFirstName}
+              onChange={this.firstNameStateHandler}
+            />
 
-          {/* Last Name Input */}
-          <InputText
-            divId="last-name-input"
-            labelText="Last Name"
-            type="text"
-            placeholder="Morse"
-            name="lname"
-            stateText={enteredLastName}
-            onChange={this.lastNameStateHandler}
-          />
+            {/* Last Name Input */}
+            <InputText
+              divId="last-name-input"
+              labelText="Last Name"
+              type="text"
+              placeholder="Morse"
+              name="lname"
+              stateText={enteredLastName}
+              onChange={this.lastNameStateHandler}
+            />
 
-          <div>
-            <legend>Artist account?</legend>
+            <div>
+              <legend>Artist account?</legend>
 
-            <label htmlFor="artist">
-              Yes
-              <input
-                type="radio"
-                id="artist"
-                name="account-type"
-                value={isArtist}
-                onChange={this.radioChangeHandler}
-              />
-            </label>
-          </div>
+              <label htmlFor="artist">
+                Yes
+                <input
+                  type="radio"
+                  id="artist"
+                  name="account-type"
+                  value={isArtist}
+                  onChange={this.radioChangeHandler}
+                />
+              </label>
+            </div>
 
-          <button
-            type="submit"
-            onClick={this.handleSubmit}
-          >
-            Sign Up
-          </button>
-        </form>
+            <button
+              type="submit"
+              onClick={this.handleSubmit}
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
     )
   }

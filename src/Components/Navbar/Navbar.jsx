@@ -58,22 +58,24 @@ export default class Navbar extends React.Component {
 
     if (!user) {
       return (
-        <div id="new-user-nav">
-          <div>
-            <Link to="/">
-              <Logo />
-            </Link>
-          </div>
-          <div>
-            <Navlink text="Learn More" link="/signin" />
-          </div>
-          <div>
-            <Navlink text="Sign-Up" link="#signup" />
-          </div>
-          <div>
-            <Navlink text="Login" link="#login" />
-          </div>
-        </div>
+        <header>
+          <nav>
+            <div className="new-user-nav">
+              <div>
+                <Navlink text="Squilla" link="/signin" />
+              </div>
+              <div>
+                <Navlink text="Learn More" link="/signin" />
+              </div>
+              <div>
+                <Navlink text="Sign-Up" link="#signup" />
+              </div>
+              <div>
+                <Navlink text="Login" link="#login" />
+              </div>
+            </div>
+          </nav>
+        </header>
       );
     }
   }
