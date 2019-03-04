@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import './SignUp.css'
-import blueImage from './blue.jpg'
+import Artist from './artist.jpg'
 
 import InputText from '../../../../Components/Input/InputText.jsx'
 
@@ -99,80 +99,96 @@ export default class SignUp extends React.Component {
     } = this.state
 
     return (
-      <div className="signup-container">
-        <div className="signup-img flex-child">
-          <img src={blueImage} alt="artist" />
-        </div>
-        <div className="signup-form flex-child">
-          <form action="/api/auth/sign-up" method="post">
-            {/* Username Input */}
-            <InputText
-              divId="username-input"
-              labelText="Username"
-              type="text"
-              placeholder="your@email.com"
-              name="username"
-              stateText={enteredUsername}
-              onChange={this.usernameStateHandler}
-            />
-
-            {/* Password Input */}
-            <InputText
-              divId="password-input"
-              labelText="Password"
-              type="password"
-              placeholder="password"
-              name="password"
-              stateText={enteredPassword}
-              onChange={this.passwordStateHandler}
-            />
-
-            {/* First Name Input */}
-            <InputText
-              divId="first-name-input"
-              labelText="First Name"
-              type="text"
-              placeholder="Dan"
-              name="fname"
-              stateText={enteredFirstName}
-              onChange={this.firstNameStateHandler}
-            />
-
-            {/* Last Name Input */}
-            <InputText
-              divId="last-name-input"
-              labelText="Last Name"
-              type="text"
-              placeholder="Morse"
-              name="lname"
-              stateText={enteredLastName}
-              onChange={this.lastNameStateHandler}
-            />
-
-            <div>
-              <legend>Artist account?</legend>
-
-              <label htmlFor="artist">
-                Yes
-                <input
-                  type="radio"
-                  id="artist"
-                  name="account-type"
-                  value={isArtist}
-                  onChange={this.radioChangeHandler}
-                />
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              onClick={this.handleSubmit}
+      <div className="limiter">
+        <div className="signup-container">
+          <div className=" p-top signup-img flex-child-1">
+            <img src={Artist} alt="artist" />
+          </div>
+          <div className="flex-child wrap-signup p-right p-left p-bottom p-top">
+            <form
+              className="signup-form"
+              action="/api/auth/sign-up"
+              method="post"
             >
-              Sign Up
-            </button>
-          </form>
+              <span className="signup-form-title">Sign Up</span>
+              {/* Username Input */}
+              <div className="wrap-input grey-btm">
+                <span className="label-input">User Name</span>
+                <InputText
+                  className="input-100"
+                  divId="username-input"
+                  type="text"
+                  placeholder="your@email.com"
+                  name="username"
+                  stateText={enteredUsername}
+                  onChange={this.usernameStateHandler}
+                />
+              </div>
+
+              {/* Password Input */}
+              <div className="wrap-input grey-btm">
+                <span className="label-input">Password</span>
+                <InputText
+                  className="input-100"
+                  divId="password-input"
+                  type="password"
+                  placeholder="password"
+                  name="password"
+                  stateText={enteredPassword}
+                  onChange={this.passwordStateHandler}
+                />
+              </div>
+
+              {/* First Name Input */}
+              <div className="wrap-input grey-btm input-100">
+                <span className="label-input">First Name</span>
+                <InputText
+                  className="input-100"
+                  divId="first-name-input"
+                  type="text"
+                  placeholder="First"
+                  name="fname"
+                  stateText={enteredFirstName}
+                  onChange={this.firstNameStateHandler}
+                />
+              </div>
+
+              <div className="wrap-input grey-btm">
+                <span className="label-input">Last Name</span>
+                {/* Last Name Input */}
+                <InputText
+                  className="input-100"
+                  divId="last-name-input"
+                  type="text"
+                  placeholder="Last"
+                  name="lname"
+                  stateText={enteredLastName}
+                  onChange={this.lastNameStateHandler}
+                />
+              </div>
+
+              <div className="wrap-input">
+                <legend>Artist account?</legend>
+
+                <label htmlFor="artist">
+                  Yes
+                  <input
+                    type="radio"
+                    id="artist"
+                    name="account-type"
+                    value={isArtist}
+                    onChange={this.radioChangeHandler}
+                  />
+                </label>
+              </div>
+
+              <button type="submit" onClick={this.handleSubmit}>
+                Sign Up
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
