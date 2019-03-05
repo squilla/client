@@ -182,7 +182,7 @@ export default class SignUp extends React.Component {
                 </label>
               </div>
 
-              <button type="submit" onClick={this.handleSubmit}>
+              <button className="button2" type="submit" onClick={this.handleSubmit}>
                 Sign Up
               </button>
             </form>

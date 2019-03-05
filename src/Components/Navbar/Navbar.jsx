@@ -8,6 +8,9 @@ import Upload from './icons/upload.png'
 import Comment from './icons/comment.png'
 import View from './icons/view.png'
 import Logoff from './icons/logoff.png'
+import Color1 from './icons/color1.png'
+import Color2 from './icons/color2.png'
+import Color3 from './icons/color3.png'
 
 import './navbar.css'
 
@@ -17,7 +20,6 @@ export default class Navbar extends React.Component {
     const { user, handleLogout } = this.props
 
     if (user) {
-      // All of these ugly `div`s below exist for flex
       return (
         <nav>
           <div className="logo">
@@ -62,16 +64,19 @@ export default class Navbar extends React.Component {
           <nav>
             <div className="new-user-nav">
               <div>
-                <Navlink text="Squilla" link="/signin" />
+                <img src={Color1} alt="icon" />
+                <Navlink text="Squilla" link="/signup" />
+                <hr />
               </div>
               <div>
-                <Navlink text="Learn More" link="/signin" />
+                <img src={Color2} alt="icon" />
+                <Navlink text="Sign-Up" link="/signup" />
+                <hr />
               </div>
               <div>
-                <Navlink text="Sign-Up" link="#signup" />
-              </div>
-              <div>
+                <img src={Color3} alt="icon" />
                 <Navlink text="Login" link="#login" />
+                <hr />
               </div>
             </div>
           </nav>
