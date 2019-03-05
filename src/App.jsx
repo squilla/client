@@ -13,10 +13,12 @@ export default class App extends React.Component {
 
     this.state = {
       user: undefined,
+      displayLogin: true,
     }
 
     this.handleLogin = this.handleLogin.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
+    this.loginControl = this.loginControl.bind(this)
   }
 
   componentDidMount() {
@@ -30,22 +32,29 @@ export default class App extends React.Component {
   }
 
   handleLogout() {
-    axios.get('/api/auth/sign-out').then(res => console.log(res).catch(err => console.log(err)))
+    axios.get('/api/auth/sign-out')
+      .catch(err => new Error(err))
 
     this.setState({
       user: undefined,
     })
   }
 
+  loginControl(value) {
+    this.setState({
+      displayLogin: value,
+    })
+  }
+
   render() {
-    const { user } = this.state
+    const { user, displayLogin } = this.state
 
     return (
       <div className="App">
         <Router>
           <div>
-            <Navbar user={user} handleLogout={this.handleLogout} />
-            <Routes user={user} handleLogin={this.handleLogin} />
+            <Navbar user={user} handleLogout={this.handleLogout} loginControl={this.loginControl} />
+            <Routes user={user} handleLogin={this.handleLogin} display={displayLogin} />
           </div>
         </Router>
       </div>

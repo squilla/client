@@ -13,7 +13,12 @@ import Landing from './Landing/Landing.jsx'
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Routes extends React.Component {
   render() {
-    const { user, handleLogin, location } = this.props
+    const {
+      user,
+      handleLogin,
+      location,
+      displayLogin,
+    } = this.props
 
     return (
       <div>
@@ -41,8 +46,7 @@ export default class Routes extends React.Component {
               />
             ) : (
               <LogIn
-                push
-                handleLogin={handleLogin}
+                {...this.props}
               />
             ))}
         />
@@ -71,6 +75,7 @@ export default class Routes extends React.Component {
             user ? (
               <Profile user={user} />
             ) : (
+              // REDIRECT TO LANDING, NOT SIGNIN HERE:
               <Redirect
                 to={{
                   pathname: '/signin',

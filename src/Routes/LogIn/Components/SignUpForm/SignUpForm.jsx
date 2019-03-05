@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import './SignUp.css'
+import './signup.css'
 import Artist from './artist.jpg'
 
 import InputText from '../../../../Components/Input/InputText.jsx'
@@ -14,7 +14,7 @@ export default class SignUp extends React.Component {
       enteredPassword: '',
       enteredFirstName: '',
       enteredLastName: '',
-      isArtist: false,
+      isArtist: true,
     }
 
     this.usernameStateHandler = this.usernameStateHandler.bind(this)
@@ -95,15 +95,16 @@ export default class SignUp extends React.Component {
       enteredPassword,
       enteredFirstName,
       enteredLastName,
-      isArtist,
     } = this.state
 
     return (
       <div className="limiter">
         <div className="signup-container">
-          <div className=" p-top signup-img flex-child-1">
+
+          <div className="p-top signup-img flex-child-1">
             <img src={Artist} alt="artist" />
           </div>
+
           <div className="flex-child wrap-signup p-right p-left p-bottom p-top">
             <form
               className="signup-form"
@@ -111,6 +112,7 @@ export default class SignUp extends React.Component {
               method="post"
             >
               <span className="signup-form-title">Sign Up</span>
+
               {/* Username Input */}
               <div className="wrap-input grey-btm">
                 <span className="label-input">User Name</span>
@@ -153,9 +155,9 @@ export default class SignUp extends React.Component {
                 />
               </div>
 
+              {/* Last Name Input */}
               <div className="wrap-input grey-btm">
                 <span className="label-input">Last Name</span>
-                {/* Last Name Input */}
                 <InputText
                   className="input-100"
                   divId="last-name-input"
@@ -165,21 +167,6 @@ export default class SignUp extends React.Component {
                   stateText={enteredLastName}
                   onChange={this.lastNameStateHandler}
                 />
-              </div>
-
-              <div className="wrap-input">
-                <legend>Artist account?</legend>
-
-                <label htmlFor="artist">
-                  Yes
-                  <input
-                    type="radio"
-                    id="artist"
-                    name="account-type"
-                    value={isArtist}
-                    onChange={this.radioChangeHandler}
-                  />
-                </label>
               </div>
 
               <button className="button2" type="submit" onClick={this.handleSubmit}>
