@@ -10,8 +10,8 @@ export default function LogIn(props) {
   // eslint-disable-next-line class-methods-use-this
   return (
     <div id="log-in-scene">
-      <LogInForm handleLogin={handleLogin} />
       <SignUpForm />
+      {/* <LogInForm handleLogin={handleLogin} /> */}
     </div>
-  )
+  );
 }
