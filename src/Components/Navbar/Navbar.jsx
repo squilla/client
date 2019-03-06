@@ -4,12 +4,7 @@
 import React from 'react'
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-
-import Logo from './Components/Logo/Logo.jsx'
 import Navlink from './Components/Navlink/Navlink.jsx'
-import Upload from './icons/upload.png'
-import Comment from './icons/comment.png'
-import View from './icons/view.png'
 import Logoff from './icons/logoff.png'
 import Color1 from './icons/color1.png'
 import Color2 from './icons/color2.png'
@@ -45,25 +40,20 @@ export default class Navbar extends React.Component {
     if (user) {
       return (
         <nav>
-          <div className="logo">
-            <Link to="/">
-              <Logo />
-            </Link>
-          </div>
-          <div className="vertical-menu">
+          <div className="new-user-nav">
             <hr />
             <div className="nav-options">
-              <img className="icons" src={Upload} alt="upload" />
+              <img className="icons" src={Color1} alt="upload" />
               <Navlink text="Upload Art" link="/get" />
             </div>
             <hr />
             <div className="nav-options">
-              <img className="icons" src={Comment} alt="comment" />
+              <img className="icons" src={Color2} alt="comment" />
               <Navlink text="Give Feedback" link="/give" />
             </div>
             <hr />
             <div className="nav-options">
-              <img className="icons" src={View} alt="comment" />
+              <img className="icons" src={Color3} alt="comment" />
               <Navlink text="View Comments" link="/" />
             </div>
             <hr />

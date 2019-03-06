@@ -35,32 +35,67 @@ export default class FeedbackContainer extends React.Component {
     const { comment: commentValue, rating: ratingValue } = this.state
 
     return (
-      <div id="feedback-container">
+      <div className="feedback-container">
         <div id="rating-container">
-          <p id="rating-label">Your Rating:</p>
+          <h2 className="b-bottom" id="rating-label">
+            Rate and Leave Feedback
+          </h2>
           <ul id="ratings">
-            <li onClick={this.handleRatingClick} value="1" className="rating">1</li>
-            <li onClick={this.handleRatingClick} value="2" className="rating">2</li>
-            <li onClick={this.handleRatingClick} value="3" className="rating">3</li>
-            <li onClick={this.handleRatingClick} value="4" className="rating">4</li>
-            <li onClick={this.handleRatingClick} value="5" className="rating">5</li>
+            <li
+              onClick={this.handleRatingClick}
+              value="1"
+              className="rating"
+            >
+              1
+            </li>
+            <li
+              onClick={this.handleRatingClick}
+              value="2"
+              className="rating"
+            >
+              2
+            </li>
+            <li
+              onClick={this.handleRatingClick}
+              value="3"
+              className="rating"
+            >
+              3
+            </li>
+            <li
+              onClick={this.handleRatingClick}
+              value="4"
+              className="rating"
+            >
+              4
+            </li>
+            <li
+              onClick={this.handleRatingClick}
+              value="5"
+              className="rating"
+            >
+              5
+            </li>
           </ul>
         </div>
         <div id="comment-container">
           <InputTextArea
             divId="feedback-input"
             name="comment"
-            labelText="Give Feedback"
             type="text"
             placeholder="This art is..."
             stateText={commentValue}
             onChange={this.handleCommentChange}
           />
-          <button type="submit" onClick={() => handleSubmit(commentValue, ratingValue)}>
-            Send Feedback
-          </button>
         </div>
+        <button
+          className="button2"
+          type="submit"
+          onClick={() => handleSubmit(commentValue, ratingValue)}
+        >
+          Send Feedback
+        </button>
       </div>
-    )
+    );
   }
 }

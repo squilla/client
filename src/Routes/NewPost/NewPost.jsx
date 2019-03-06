@@ -23,6 +23,9 @@ export default class NewPost extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <div className="upload-btn-wrapper">
+          <button className="btn">Upload a file</button>
+        </div>
         <input type="file" name="art" />
         <input type="text" name="name" />
         <input type="text" name="description" />
