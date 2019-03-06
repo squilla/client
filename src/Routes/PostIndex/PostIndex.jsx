@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import axios from 'axios'
 
@@ -16,7 +17,6 @@ export default class PostIndex extends React.Component {
 
   componentWillMount() {
     axios.get('/api/art/random').then((res) => {
-      console.log(res.data)
       const image = res.data.url
       this.returnImage(image)
     })
@@ -30,8 +30,8 @@ export default class PostIndex extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   handleSubmit(content, reaction) {
-    axios.post('/api/feedback', reaction)
     axios.post('/api/feedback', content)
+    axios.post('/api/feedback', reaction)
   }
 
 
