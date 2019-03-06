@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Fredoka+One|Open+Sans|Montserrat');
+.login-img img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.limiter {
+    width: 100%;
+}
+
+* {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.wrap-login {
+    width: 520px;
+    min-height: 100vh;
+    border-radius: 2px;
+    position: relative;
+}
+
+.p-right {
+    padding-right: 50px;
+}
+
+.p-left {
+    padding-left: 50px;
+}
+
+.p-bottom {
+    padding-bottom: 50px;
+}
+
+.p-top {
+    padding-top: 70px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 5em;
+}
+
+.login-form-title {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 39px;
+    line-height: 1.2;
+    text-align: left;
+    padding-bottom: 59px;
+}
+
+.button2 {
+    color: #fff !important;
+    text-transform: uppercase;
+    background: #035EBE;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+.button2:hover {
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
+
+.button2:active {
+    color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+
+@media all and (max-width:30em) {
+    .button2 {
+        display: block;
+        margin: 0.4em auto;
+    }
+}
