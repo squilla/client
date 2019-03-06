@@ -15,7 +15,6 @@ export default class PostIndex extends React.Component {
   }
 
   componentWillMount() {
-    // get art resource as `post`
     axios.get('/api/art/random').then((res) => {
       const image = res.data.art.url.string
       this.returnImage(image)
@@ -29,23 +28,18 @@ export default class PostIndex extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  handleSubmit(commentValue, ratingValue) {
-    axios.post('/api/feedback/', { commentValue, ratingValue })
-      .then((res) => {
-        console.log(res)
-        // something
-      }).catch((err) => {
-        console.warn(err)
-      })
+  handleSubmit(content, reaction) {
+    axios.post('/api/feedback/', reaction)
+    axios.post('/api/feedback', content)
   }
 
 
   render() {
-    const { img: image } = this.state
+    const { img } = this.state
 
     return (
       <div id="post-index-container">
-        <PostContainer post={image} />
+        <PostContainer post={img} />
         <FeedbackContainer handleSubmit={this.handleSubmit} />
       </div>
     )

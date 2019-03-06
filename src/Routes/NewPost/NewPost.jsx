@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+
 import './NewPost.css'
 
 export default class NewPost extends React.Component {
@@ -14,17 +15,16 @@ export default class NewPost extends React.Component {
     event.preventDefault();
     const formData = new FormData(event.target)
 
-    console.log(formData.get('art'));
-
-    // axios.post('/api/art/', formData)
-    //   .then(response => console.log(response))
+    axios.post('https://squilla-api.herokuapp.com/api/art/', formData)
+      .then(res => console.log(res))
+      .catch(err => console.log(err.message))
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="file" name="art" />
-        <input type="text" name="title" />
+        <input type="text" name="name" />
         <input type="text" name="description" />
         <button type="submit">Submit</button>
       </form>

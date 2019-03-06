@@ -17,12 +17,15 @@ export default class ViewPost extends React.Component {
 
   componentWillMount() {
     const { id } = this.props
+
+    // Get Image
     axios.get(`/api/art/${id}`).then((res) => {
       const image = res.data.art.url.string
       this.setImage(image)
     })
 
-    axios.get(`/api/feedback/${id}`).then((res) => {
+    // Get Feedback for Image
+    axios.get(`/api/feedback/art/${id}`).then((res) => {
       const { feedback } = res.data
       this.setFeedback(feedback)
     })
