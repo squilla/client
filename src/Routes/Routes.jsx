@@ -15,9 +15,7 @@ export default class Routes extends React.Component {
   render() {
     const {
       user,
-      handleLogin,
       location,
-      displayLogin,
     } = this.props
 
     return (
@@ -27,7 +25,7 @@ export default class Routes extends React.Component {
           path="/give"
           render={() => (
             user ? (
-              <PostIndex />
+              <PostIndex props={user} />
             ) : (
               <Landing />
             )

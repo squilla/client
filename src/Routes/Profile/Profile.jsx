@@ -19,12 +19,12 @@ export default class Profile extends React.Component {
     const { user } = this.props
     const { _id: userId } = user
 
-    axios.get(`/api/users/${userId}`)
+    axios.get(`/api/artist/${userId}/art`)
       .then((res) => {
         const userArt = res.data.art
         console.log(userArt)
 
-        return userArt.map(art => <ArtContainer props={art} onClick={this.loadPage} />)
+        // return userArt.map(art => <ArtContainer props={art} onClick={this.loadPage} />)
       })
   }
 

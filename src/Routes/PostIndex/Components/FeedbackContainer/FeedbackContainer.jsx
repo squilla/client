@@ -37,7 +37,7 @@ export default class FeedbackContainer extends React.Component {
     return (
       <div id="feedback-container">
         <div id="rating-container">
-          <p id="rating-lable">Your Rating:</p>
+          <p id="rating-label">Your Rating:</p>
           <ul id="ratings">
             <li onClick={this.handleRatingClick} value="1" className="rating">1</li>
             <li onClick={this.handleRatingClick} value="2" className="rating">2</li>
