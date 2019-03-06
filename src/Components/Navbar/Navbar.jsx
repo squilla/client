@@ -4,8 +4,6 @@
 import React from 'react'
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-
-import Logo from './Components/Logo/Logo.jsx'
 import Navlink from './Components/Navlink/Navlink.jsx'
 import Logoff from './icons/logoff.png'
 import Color1 from './icons/color1.png'

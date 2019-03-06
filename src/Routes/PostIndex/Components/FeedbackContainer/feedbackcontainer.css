@@ -1,17 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Fredoka+One|Open+Sans|Montserrat');
 ul#ratings {
-  width: 60vw;
-
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
+    width: 60vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
 }
 
 li.rating {
-  list-style-type: none;
-  font-size: 2em;
+    list-style-type: none;
+    font-size: 2em;
 }
 
 #feedback-input textarea {
-  width: 60vw;
-  height: 10vh;
+    width: 60vw;
+    height: 10vh;
+}
+
+#rating-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #323334;
+    font-size: 27px;
+    text-align: center;
+    align-self: center;
+    margin-left: 30%;
+    margin-top: 12px;
+}
+
+.b-bottom {
+    border-bottom: 2px solid #77B3D4;
+    width: 50%;
+    align-self: center;
+}
+
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    text-align: center;
+    align-self: center;
+    font-weight: 600;
+    color: #C75C5C;
+}
+
+.rating{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #323334;
 }

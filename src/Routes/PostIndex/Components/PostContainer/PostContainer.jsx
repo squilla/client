@@ -2,11 +2,14 @@
 // can't do anything about this error either
 // alt tag non existant on backend
 import React from 'react'
+import './PostContainer.css'
 
 function PostContainer({ post }) {
   return (
-    <div id="post-container">
-      <img id="post-image" src={post} />
+    <div className="container">
+      <div className="wrapper" id="post-container">
+        <img id="post-image" src={post} />
+      </div>
     </div>
   )
 }
