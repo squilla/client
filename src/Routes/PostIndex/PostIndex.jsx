@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import axios from 'axios'
 
@@ -15,9 +16,8 @@ export default class PostIndex extends React.Component {
   }
 
   componentWillMount() {
-    // get art resource as `post`
     axios.get('/api/art/random').then((res) => {
-      const image = res.data.art.url.string
+      const image = res.data.url
       this.returnImage(image)
     })
   }
@@ -29,23 +29,18 @@ export default class PostIndex extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  handleSubmit(commentValue, ratingValue) {
-    axios.post('/api/feedback/', { commentValue, ratingValue })
-      .then((res) => {
-        console.log(res)
-        // something
-      }).catch((err) => {
-        console.warn(err)
-      })
+  handleSubmit(content, reaction) {
+    axios.post('/api/feedback', content)
+    axios.post('/api/feedback', reaction)
   }
 
 
   render() {
-    const { img: image } = this.state
+    const { img } = this.state
 
     return (
       <div id="post-index-container">
-        <PostContainer post={image} />
+        <PostContainer post={img} />
         <FeedbackContainer handleSubmit={this.handleSubmit} />
       </div>
     )

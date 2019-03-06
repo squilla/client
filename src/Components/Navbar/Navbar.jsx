@@ -1,3 +1,6 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
@@ -16,6 +19,26 @@ import './navbar.css'
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Navbar extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.signInController = this.signInController.bind(this)
+    this.logInController = this.logInController.bind(this)
+
+  }
+
+  signInController() {
+    const { loginControl } = this.props
+
+    loginControl(false)
+  }
+
+  logInController() {
+    const { loginControl } = this.props
+
+    loginControl(true)
+  }
+
   userState() {
     const { user, handleLogout } = this.props
 
@@ -65,17 +88,17 @@ export default class Navbar extends React.Component {
             <div className="new-user-nav">
               <div>
                 <img src={Color1} alt="icon" />
-                <Navlink text="Squilla" link="/signup" />
+                <Navlink text="Squilla" link="/" />
                 <hr />
               </div>
-              <div>
+              <div onClick={this.signInController}>
                 <img src={Color2} alt="icon" />
-                <Navlink text="Sign-Up" link="/signup" />
+                <Navlink text="Sign-Up" link="/signin" />
                 <hr />
               </div>
-              <div>
+              <div onClick={this.logInController}>
                 <img src={Color3} alt="icon" />
-                <Navlink text="Login" link="#login" />
+                <Navlink text="Login" link="/signin" />
                 <hr />
               </div>
             </div>

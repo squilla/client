@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import PostContainer from '../PostIndex/Components/PostContainer/PostContainer.jsx'
+import CommentContainer from './Components/CommentContainer/CommentContainer.jsx'
 
 // eslint-disable-next-line react/require-render-return
 export default class ViewPost extends React.Component {
@@ -10,21 +11,45 @@ export default class ViewPost extends React.Component {
 
     this.state = {
       img: null,
+      comments: null,
     }
   }
 
   componentWillMount() {
     const { id } = this.props
+
+    // Get Image
     axios.get(`/api/art/${id}`).then((res) => {
+      console.log(res.data)
       const image = res.data.art.url.string
-      this.returnImage(image)
+      this.setImage(image)
+    })
+
+    // Get Feedback for Image
+    axios.get(`/api/feedback/art/${id}`).then((res) => {
+      const { feedback } = res.data
+      this.setFeedback(feedback)
     })
   }
 
-  returnImage(image) {
+  setImage(image) {
     this.setState({
       img: image,
     })
+  }
+
+  setFeedback(feedback) {
+    this.setState({
+      comments: feedback,
+    })
+  }
+
+  getComments() {
+    const { comments } = this.state
+
+    if (comments) {
+      return comments.map(comment => <CommentContainer feedback={comment} />)
+    }
   }
 
   render() {
@@ -33,6 +58,9 @@ export default class ViewPost extends React.Component {
     return (
       <div id="post-index-container">
         <PostContainer post={image} />
+        <div id="comments-container">
+          {this.getComments()}
+        </div>
       </div>
     )
   }

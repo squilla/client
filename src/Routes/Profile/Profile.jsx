@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { BrowserRouter as Redirect } from 'react-router-dom'
+// import { BrowserRouter as Redirect } from 'react-router-dom'
 
 import ArtContainer from './Components/ArtContainer/ArtContainer.jsx'
 
@@ -12,10 +12,6 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      user: '',
-    }
-
     this.loadPage = this.loadPage.bind(this)
   }
 
@@ -26,7 +22,7 @@ export default class Profile extends React.Component {
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         const userArt = res.data.art
-        this.setState({ user: res.data })
+        console.log(userArt)
 
         return userArt.map(art => <ArtContainer props={art} onClick={this.loadPage} />)
       })

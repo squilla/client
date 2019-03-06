@@ -36,7 +36,7 @@ export default class LogIn extends React.Component {
     const { enteredUsername: email, enteredPassword: password } = this.state
 
     e.preventDefault()
-    axios.post('/api/auth/sign-in', { email, password })
+    axios.post('https://squilla.dacio.app/api/auth/sign-in', { email, password })
       .then((response) => {
         // If response is OK, set this.state.user to the returned userId
         // call this.getUser()
@@ -49,13 +49,15 @@ export default class LogIn extends React.Component {
           this.getUser()
         }
       })
-      .catch(() => {
+      .catch((err) => {
         // If response returns an error,
         // set incorrect to true
         // which will statefully alert this.promptIncorrect()
         this.setState({
           incorrect: true,
         })
+
+        console.log(err.message)
       })
   }
 
