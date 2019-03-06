@@ -11,7 +11,7 @@ export default function LogIn(props) {
   return (
     <div id="log-in-scene">
       <SignUpForm />
-      {/* <LogInForm handleLogin={handleLogin} /> */}
+      <LogInForm handleLogin={handleLogin} />
     </div>
   );
 }

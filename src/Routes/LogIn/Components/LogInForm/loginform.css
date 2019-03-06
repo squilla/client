@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Fredoka+One|Open+Sans|Montserrat');
+.login-img img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.limiter {
+    width: 100%;
+}
+
+* {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.wrap-login {
+    width: 520px;
+    min-height: 100vh;
+    border-radius: 2px;
+    position: relative;
+}
+
+.p-right {
+    padding-right: 50px;
+}
+
+.p-left {
+    padding-left: 50px;
+}
+
+.p-bottom {
+    padding-bottom: 50px;
+}
+
+.p-top {
+    padding-top: 70px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 5em;
+}
+
+.login-form-title {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 39px;
+    line-height: 1.2;
+    text-align: left;
+    padding-bottom: 59px;
+}
