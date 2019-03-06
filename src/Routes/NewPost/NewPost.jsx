@@ -15,7 +15,7 @@ export default class NewPost extends React.Component {
     event.preventDefault();
     const formData = new FormData(event.target)
 
-    axios.post('https://squilla-api.herokuapp.com/api/art/', formData)
+    axios.post('/api/art', formData)
       .then(res => console.log(res))
       .catch(err => console.log(err.message))
   }

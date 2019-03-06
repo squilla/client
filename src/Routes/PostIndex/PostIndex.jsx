@@ -16,7 +16,8 @@ export default class PostIndex extends React.Component {
 
   componentWillMount() {
     axios.get('/api/art/random').then((res) => {
-      const image = res.data.art.url.string
+      console.log(res.data)
+      const image = res.data.url
       this.returnImage(image)
     })
   }
@@ -29,7 +30,7 @@ export default class PostIndex extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   handleSubmit(content, reaction) {
-    axios.post('/api/feedback/', reaction)
+    axios.post('/api/feedback', reaction)
     axios.post('/api/feedback', content)
   }
 
