@@ -24,14 +24,8 @@ export default class Profile extends React.Component {
         const userArt = res.data.art
         console.log(userArt)
 
-        // return userArt.map(art => <ArtContainer props={art} onClick={this.loadPage} />)
+        return userArt.map(art => <ArtContainer props={art} />)
       })
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  loadPage(e) {
-    // load a redirect
-    console.log('hey, this isn\'t finished', e)
   }
 
   render() {
