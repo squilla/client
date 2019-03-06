@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import './signup.css'
+import './SignUp.css'
 import Artist from './artist.jpg'
 
 import InputText from '../../../../Components/Input/InputText.jsx'
