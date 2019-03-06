@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-
 import InputText from '../../../../Components/Input/InputText.jsx'
 import './loginform.css'
+import Artist from './artist.jpg'
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class LogIn extends React.Component {
@@ -87,39 +87,47 @@ export default class LogIn extends React.Component {
     const { enteredUsername, enteredPassword } = this.state
 
     return (
-      <div id="login-form">
-        <form>
-          {this.promptIncorrect()}
-          {/* Username Input */}
-          <InputText
-            divId="username-input"
-            labelText="Username"
-            type="text"
-            placeholder="your@email.com"
-            name="username"
-            stateText={enteredUsername}
-            onChange={this.usernameStateHandler}
-          />
+      <div className="limiter">
+        <div className="login-container">
+          <div className="flex-child wrap-login p-right p-left p-bottom p-top">
+            <form className="login-form">
+              {this.promptIncorrect()}
+              <span className="login-form-title">Log In</span>
+              {/* Username Input */}
+              <div className="wrap-input grey-btm">
+                <span className="label-input">User Name</span>
+                <InputText
+                  divId="username-input"
+                  type="text"
+                  placeholder="your@email.com"
+                  name="username"
+                  stateText={enteredUsername}
+                  onChange={this.usernameStateHandler}
+                />
+              </div>
+              <div className="wrap-input grey-btm">
+                {/* Password Input */}
+                <span className="label-input">Password</span>
+                <InputText
+                  divId="password-input"
+                  type="password"
+                  placeholder="password"
+                  name="password"
+                  stateText={enteredPassword}
+                  onChange={this.passwordStateHandler}
+                />
+              </div>
 
-          {/* Password Input */}
-          <InputText
-            divId="password-input"
-            labelText="Password"
-            type="password"
-            placeholder="password"
-            name="password"
-            stateText={enteredPassword}
-            onChange={this.passwordStateHandler}
-          />
-
-          <button
-            type="submit"
-            onClick={this.handleSubmit}
-          >
-            Log In
-          </button>
-        </form>
+              <button className="button2" type="submit" onClick={this.handleSubmit}>
+                Log In
+              </button>
+            </form>
+          </div>
+          <div className="login-img p-top flex-child1">
+            <img src={Artist} alt="artist" />
+          </div>
+        </div>
       </div>
-    )
+    );
   }
 }
