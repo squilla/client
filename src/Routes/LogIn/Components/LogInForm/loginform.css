@@ -63,3 +63,34 @@
     text-align: left;
     padding-bottom: 59px;
 }
+
+.button2 {
+    color: #fff !important;
+    text-transform: uppercase;
+    background: #035EBE;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+.button2:hover {
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
+
+.button2:active {
+    color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+
+@media all and (max-width:30em) {
+    .button2 {
+        display: block;
+        margin: 0.4em auto;
+    }
+}

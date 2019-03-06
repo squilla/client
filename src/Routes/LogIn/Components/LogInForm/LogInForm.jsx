@@ -116,7 +116,7 @@ export default class LogIn extends React.Component {
                 />
               </div>
 
-              <button type="submit" onClick={this.handleSubmit}>
+              <button className="button2" type="submit" onClick={this.handleSubmit}>
                 Log In
               </button>
             </form>
