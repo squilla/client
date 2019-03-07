@@ -25,7 +25,7 @@ export default class Routes extends React.Component {
           path="/give"
           render={() => (
             user ? (
-              <PostIndex props={user} />
+              <PostIndex user={user} />
             ) : (
               <Redirect
                 to={{
@@ -76,7 +76,7 @@ export default class Routes extends React.Component {
           exact
           render={() => (
             user ? (
-              <PostIndex user={user} />
+              <Profile user={user} />
             ) : (
               <Landing {...this.props} />
             )

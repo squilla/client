@@ -26,7 +26,6 @@ export default class NewPost extends React.Component {
   }
 
   responseSetState(res) {
-    console.log(res)
     this.setState({
       response: res.status
     })

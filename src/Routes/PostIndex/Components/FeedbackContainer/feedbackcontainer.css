@@ -47,8 +47,13 @@ li.rating {
     color: #C75C5C;
 }
 
-.rating{
+.rating {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   color: #323334;
+}
+
+.rating:hover, .rating#clicked {
+    color: #C75C5C;
+    cursor: pointer;
 }

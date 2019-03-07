@@ -4,6 +4,7 @@ import React from 'react'
 import InputTextArea from '../../../../Components/InputTextArea/InputTextArea'
 
 import './feedbackcontainer.css'
+import { ReadStream } from 'tty';
 
 export default class FeedbackContainer extends React.Component {
   constructor(props) {
@@ -12,10 +13,12 @@ export default class FeedbackContainer extends React.Component {
     this.state = {
       comment: '',
       rating: '',
+      rateObj: '',
     }
 
     this.handleCommentChange = this.handleCommentChange.bind(this)
     this.handleRatingClick = this.handleRatingClick.bind(this)
+    this.clearValue = this.clearValue.bind(this)
   }
 
   handleCommentChange(event) {
@@ -25,9 +28,38 @@ export default class FeedbackContainer extends React.Component {
   }
 
   handleRatingClick(event) {
+    const oldRating = this.state.rateObj
+    const newRating = event.target
+
+    const rate = event.target.value
+
     this.setState({
-      rating: event.target.value,
+      rating: rate,
     })
+    this.setState({
+      rateObj: newRating,
+    })
+    
+    this.setRatingStyle(oldRating, newRating)
+  }
+
+  setRatingStyle(oldRating, newRating) {
+    if (oldRating) {
+      oldRating.removeAttribute('id')
+    }
+    newRating.setAttribute('id', 'clicked')
+  }
+
+  clearValue() {
+    this.setState({
+      comment: '',
+    })
+
+    this.setState({
+      rating: '',
+    })
+
+    this.state.rateObj.removeAttribute('id')
   }
 
   render() {
@@ -91,7 +123,10 @@ export default class FeedbackContainer extends React.Component {
         <button
           className="button2"
           type="submit"
-          onClick={() => handleSubmit(commentValue, ratingValue)}
+          onClick={() => {
+            handleSubmit(commentValue, ratingValue)
+            this.clearValue()
+          }}
         >
           Send Feedback
         </button>
