@@ -12,13 +12,16 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      user: undefined,
+      user: '',
       displayLogin: true,
+      displayLanding: null,
     }
 
     this.handleLogin = this.handleLogin.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
     this.loginControl = this.loginControl.bind(this)
+    this.landingControl = this.landingControl.bind(this)
+    this.landingControlState = this.landingControlState.bind(this)
   }
 
   componentDidMount() {
@@ -46,6 +49,23 @@ export default class App extends React.Component {
     })
   }
 
+  landingControlState(value) {
+    this.setState({
+      displayLanding: value,
+    })
+  }
+
+  landingControl() {
+    const { user, displayLanding } = this.state
+
+    if (displayLanding === true) {
+      console.log(displayLanding)
+      return null
+    }
+
+    return <Navbar user={user} handleLogout={this.handleLogout} loginControl={this.loginControl} />
+  }
+
   render() {
     const { user, displayLogin } = this.state
 
@@ -53,8 +73,13 @@ export default class App extends React.Component {
       <div className="App">
         <Router>
           <div>
-            <Navbar user={user} handleLogout={this.handleLogout} loginControl={this.loginControl} />
-            <Routes user={user} handleLogin={this.handleLogin} display={displayLogin} />
+            {this.landingControl()}
+            <Routes
+              user={user}
+              handleLogin={this.handleLogin}
+              display={displayLogin}
+              landingControlState={this.landingControlState}
+            />
           </div>
         </Router>
       </div>

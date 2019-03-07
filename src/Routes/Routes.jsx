@@ -27,7 +27,12 @@ export default class Routes extends React.Component {
             user ? (
               <PostIndex props={user} />
             ) : (
-              <Landing />
+              <Redirect
+                to={{
+                  pathname: '/',
+                  state: { from: location },
+                }}
+              />
             )
           )}
         />
@@ -73,13 +78,7 @@ export default class Routes extends React.Component {
             user ? (
               <PostIndex user={user} />
             ) : (
-              // REDIRECT TO LANDING, NOT SIGNIN HERE:
-              <Redirect
-                to={{
-                  pathname: '/signin',
-                  state: { from: location },
-                }}
-              />
+              <Landing {...this.props} />
             )
           )}
         />
