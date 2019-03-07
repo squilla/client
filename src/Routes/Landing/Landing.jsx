@@ -23,7 +23,7 @@ export default class Landing extends React.Component {
           <h1>Squilla</h1>
         </div> 
         <div className="cta-btn">
-          <Link to="/sign-in">
+          <Link to="/signin">
             <button type="button">
                 Enter
             </button>

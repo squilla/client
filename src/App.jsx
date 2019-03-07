@@ -59,7 +59,6 @@ export default class App extends React.Component {
     const { user, displayLanding } = this.state
 
     if (displayLanding === true) {
-      console.log(displayLanding)
       return null
     }
 
