@@ -1,0 +1,67 @@
+#new-post-form-container {
+  height: 50vh;
+  width: 50vw;
+  margin: auto;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+/* Upload Button Credit: https://blog.benestudio.co/custom-file-upload-button-with-pure-css-5aacf39aa0a */
+#new-post-btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#new-post-upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#new-post-upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+/* End Upload Button Section */
+
+.new-post-input-label {
+  display: block;
+}
+
+.new-post-input-text {
+  display: block;
+
+  outline: none;
+
+  padding: 5px;
+  
+  border: none;
+  border-bottom: 1px solid #BBBBBB;
+}
+
+input.new-post-input-text  {
+  width: 22.5vw;
+  font-size: 1.25em;
+}
+
+textarea.new-post-input-text {
+  border-bottom: 1px solid #BBBBBB;
+  font-size: 1em;
+}
+
+#new-post-submit {
+
+}
+
