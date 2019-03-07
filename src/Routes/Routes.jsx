@@ -71,7 +71,7 @@ export default class Routes extends React.Component {
           exact
           render={() => (
             user ? (
-              <Profile user={user} />
+              <PostIndex user={user} />
             ) : (
               // REDIRECT TO LANDING, NOT SIGNIN HERE:
               <Redirect
