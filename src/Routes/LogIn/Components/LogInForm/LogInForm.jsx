@@ -26,9 +26,12 @@ export default class LogIn extends React.Component {
     const { handleLogin } = this.props
     const { user: userId } = this.state
 
+
     if (userId) {
       axios.get(`/api/users/${userId}`)
-        .then(response => handleLogin(response))
+        .then((response) => {
+          handleLogin(response)
+        })
     }
   }
 
@@ -41,6 +44,7 @@ export default class LogIn extends React.Component {
         // If response is OK, set this.state.user to the returned userId
         // call this.getUser()
         if (response.status === 200) {
+          // console.log(response)
           this.setState({
             // eslint-disable-next-line no-underscore-dangle
             user: response.data._id,
@@ -57,7 +61,7 @@ export default class LogIn extends React.Component {
           incorrect: true,
         })
 
-        console.log(err.message)
+        // console.log(err.message)
       })
   }
 

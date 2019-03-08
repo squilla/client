@@ -9,7 +9,9 @@ import './artcontainer.css'
 
 function ArtContainer({ props }) {
   const { art, onClick } = props
+  console.log(art)
   const { url } = art
+
   return (
     <div className="single-art-container">
       <img src={url} className="single-art-image" onClick={onClick} />

@@ -83,9 +83,9 @@ export default class SignUp extends React.Component {
       firstName, lastName, email, password, isArtist,
     }).then((response) => {
       // TODO: Move the page forward if 200
-      console.log(response)
+      // console.log(response)
     }).catch((err) => {
-      console.log(err)
+      // console.log(err)
     })
   }
 

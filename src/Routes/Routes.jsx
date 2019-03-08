@@ -16,6 +16,8 @@ export default class Routes extends React.Component {
     const {
       user,
       location,
+      display,
+      handleLogin
     } = this.props
 
     return (
@@ -49,7 +51,8 @@ export default class Routes extends React.Component {
               />
             ) : (
               <LogIn
-                {...this.props}
+                display={display}
+                handleLogin={handleLogin}
               />
             ))}
         />

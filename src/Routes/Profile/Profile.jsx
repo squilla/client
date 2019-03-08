@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-// import { BrowserRouter as Redirect } from 'react-router-dom'
 
 import ArtContainer from './Components/ArtContainer/ArtContainer.jsx'
 
@@ -12,28 +11,35 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props)
 
-    // this.loadPage = this.loadPage.bind(this)
+    this.loadData = this.loadData.bind(this)
   }
 
-  // loadData() {
-  //   const { user } = this.props
-  //   const { _id: userId } = user
+  loadData() {
+    const { user } = this.props
+    const { _id: userId } = user
 
-  //   axios.get(`/api/artist/${userId}/art`)
-  //     .then((res) => {
-  //       const userArt = res.data.art
-  //       console.log(userArt)
+    axios.get(`/api/artists/${userId}/art`)
+      .then((res) => {
+        console.dir(res)
+        const userArt = res.data
+        console.log(userArt)
 
-  //       return userArt.map(art => <ArtContainer props={art} />)
-  //     })
-  // }
+        return userArt.map((art) => {
+          return <ArtContainer art={art} onClick={this.viewSingle} />
+        })
+      })
+  }
+
+  viewSingle() {
+    console.log('click!')
+  }
 
   render() {
     // const { user } = this.state
     return (
       <div>
         <div id="user-art-container">
-          {/* {this.loadData()} */}
+          {this.loadData()}
         </div>
       </div>
     )
