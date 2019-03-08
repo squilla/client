@@ -1,4 +1,57 @@
-.single-art-container img {
-  width: 10vw;
-  height: 10vh;
+.art-container {
+  width: 40vw;
+  margin-left: 70%;
+
+  border-bottom: 1px solid grey;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.art-container img {
+  max-width: 30vw;
+  left: 50%;
+}
+
+
+.art-container .feedback-container {
+  width: 40vw;
+}
+
+.rating-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.comments-title {
+  font-size: 1.25em;
+}
+
+.comments-container .comments {
+  max-width: 40vw;
+  border-bottom: 1px solid #F8F8F8;
+  color: grey;
+  text-align: center;
+  word-wrap: break-all;
+  overflow: hidden;
+}
+
+div.comments-container {
+  text-align: center;
+  color: #c65c5c;
+}
+
+div.rating-container li {
+  list-style: none;
+  font-size: 1.5em;
+  color: #515d73;
+  margin-right: 50px;
+}
+
+div.rating-container li span {
+  font-size: .5em;
+  color: black;
 }

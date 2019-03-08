@@ -26,12 +26,12 @@ export default class LogIn extends React.Component {
     const { handleLogin } = this.props
     const { user: userId } = this.state
 
-    console.log('called')
+    // console.log(handleLogin)
 
     if (userId) {
       axios.get(`/api/users/${userId}`)
         .then((response) => {
-          console.log(response)
+          // console.dir(response)
           handleLogin(response)
         })
     }
@@ -51,7 +51,7 @@ export default class LogIn extends React.Component {
             // eslint-disable-next-line no-underscore-dangle
             user: response.data._id,
           })
-          console.log(response)
+          // console.log(response)
           this.getUser()
         }
       })

@@ -82,11 +82,21 @@ export default class SignUp extends React.Component {
     axios.post('/api/auth/sign-up', {
       firstName, lastName, email, password, isArtist,
     }).then((response) => {
-      // TODO: Move the page forward if 200
-      // console.log(response)
+      this.getUser(response.data._id)
     }).catch((err) => {
       // console.log(err)
     })
+  }
+
+  getUser(userId) {
+    const { handleLogin } = this.props
+
+    if (userId) {
+      axios.get(`/api/users/${userId}`)
+        .then((response) => {
+          handleLogin(response)
+        })
+    }
   }
 
   render() {

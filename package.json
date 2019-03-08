@@ -35,5 +35,5 @@
     "webpack-cli": "^3.2.3",
     "terser": "^3.14.1"
   },
-  "proxy": "https://squilla.dacio.app"
+  "proxy": "https://squilla-api.herokuapp.com"
 }

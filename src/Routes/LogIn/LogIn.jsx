@@ -13,7 +13,7 @@ export default function LogIn(props) {
       {display ? (
         <LogInForm handleLogin={handleLogin} />
       ) : (
-        <SignUpForm />
+        <SignUpForm handleLogin={handleLogin} />
       )}
     </div>
   );

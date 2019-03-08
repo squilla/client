@@ -2,7 +2,21 @@
   width: 39vw;
 
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   justify-content: space-between;
   align-items: baseline;
+}
+
+#profile-no-data {
+  height: 100vh;
+  width: 100vw;
+
+  margin-top: -20%;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  color: #a3a4a6;
 }

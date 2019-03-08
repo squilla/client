@@ -59,7 +59,9 @@ export default class FeedbackContainer extends React.Component {
       rating: '',
     })
 
-    this.state.rateObj.removeAttribute('id')
+    if (this.state.rateObj) {
+      this.state.rateObj.removeAttribute('id')
+    }
   }
 
   render() {

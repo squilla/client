@@ -11,35 +11,39 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props)
 
-    this.loadData = this.loadData.bind(this)
+    this.state = {
+      data: [],
+    }
   }
 
-  loadData() {
-    const { user } = this.props
-    const { _id: userId } = user
-
+  componentWillMount() {
+    const { _id: userId } = this.props.user
     axios.get(`/api/artists/${userId}/art`)
       .then((res) => {
-        console.dir(res)
-        const userArt = res.data
-        console.dir(userArt)
-
-        return userArt.map((art) => {
-          return <ArtContainer art={art} onClick={this.viewSingle} />
+        this.setState({
+          data: res.data,
         })
       })
   }
 
-  viewSingle() {
-    console.log('click!')
+  checkData() {
+    const { data } = this.state
+
+    
+    if (data.length == 0) {
+      return <p id="profile-no-data">Upload Your First Piece of Art to View Your Profile!</p>
+    }
   }
 
   render() {
-    // const { user } = this.state
+    const { data } = this.state
     return (
       <div>
         <div id="user-art-container">
-          {this.loadData()}
+          {this.checkData()}
+          {data.map((art) =>
+            <ArtContainer art={art} onClick={this.getFeedbackWithId} />
+          )}
         </div>
       </div>
     )

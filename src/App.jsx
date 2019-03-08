@@ -29,6 +29,7 @@ export default class App extends React.Component {
   }
 
   handleLogin(userData) {
+    console.log('handlelogin')
     this.setState({
       user: userData.data,
     })
