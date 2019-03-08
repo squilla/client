@@ -22,7 +22,7 @@ export default class Profile extends React.Component {
       .then((res) => {
         console.dir(res)
         const userArt = res.data
-        console.log(userArt)
+        console.dir(userArt)
 
         return userArt.map((art) => {
           return <ArtContainer art={art} onClick={this.viewSingle} />
